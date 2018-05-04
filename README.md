@@ -19,9 +19,25 @@
 * Maven
 * SpringBoot
 
+## 실행
+### 토큰 발행 
+~~~
+curl -XPOST http://testjwtclientid:XY7kmzoNzl100@localhost:8080/oauth/token?grant_type=password&username=john.doe&password=jwtpass
+~~~
+### 정보 요청
+~~~
+curl -XGET http://localhost:8080/worktime/users -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsidGVzdGp3dHJlc291cmNlaWQiXSwidXNlcl9uYW1lIjoiYWRtaW4uYWRtaW4iLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiXSwiZXhwIjoxNTI1NDUzMjQ5LCJhdXRob3JpdGllcyI6WyJTVEFOREFSRF9VU0VSIiwiQURNSU5fVVNFUiJdLCJqdGkiOiJiMWIxNzY1NS05ODA1LTQ5NGUtYTc2OS0zMTA3Y2Q2OGZjMmQiLCJjbGllbnRfaWQiOiJ0ZXN0and0Y2xpZW50aWQifQ.W_7BrBBJjrUerduS5tIp6VNeBh4-ZbB9Qh8N5oqw050"
+
+curl -XGET http://localhost:8080/worktime/ -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsidGVzdGp3dHJlc291cmNlaWQiXSwidXNlcl9uYW1lIjoiYWRtaW4uYWRtaW4iLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiXSwiZXhwIjoxNTI1NDUzMjQ5LCJhdXRob3JpdGllcyI6WyJTVEFOREFSRF9VU0VSIiwiQURNSU5fVVNFUiJdLCJqdGkiOiJiMWIxNzY1NS05ODA1LTQ5NGUtYTc2OS0zMTA3Y2Q2OGZjMmQiLCJjbGllbnRfaWQiOiJ0ZXN0and0Y2xpZW50aWQifQ.W_7BrBBJjrUerduS5tIp6VNeBh4-ZbB9Qh8N5oqw050"
+
+curl -XPOST http://localhost:8080/worktime/work -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsidGVzdGp3dHJlc291cmNlaWQiXSwidXNlcl9uYW1lIjoiYWRtaW4uYWRtaW4iLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiXSwiZXhwIjoxNTI1NDUzMjQ5LCJhdXRob3JpdGllcyI6WyJTVEFOREFSRF9VU0VSIiwiQURNSU5fVVNFUiJdLCJqdGkiOiJiMWIxNzY1NS05ODA1LTQ5NGUtYTc2OS0zMTA3Y2Q2OGZjMmQiLCJjbGllbnRfaWQiOiJ0ZXN0and0Y2xpZW50aWQifQ.W_7BrBBJjrUerduS5tIp6VNeBh4-ZbB9Qh8N5oqw050"
+~~~
+## 추가 TIP
+JDK 9 실행시 java parameter option을 줘야 한다
+~~~
+java  lahuman.worktime.WorktimeApplication --add-modules=java.xml.bind,java.activation
+~~~
 
 ## 참고 자료
 * [springboot-jwt](https://github.com/nydiarra/springboot-jwt)
-
-
-
+* [How to resolve java.lang.NoClassDefFoundError: javax/xml/bind/JAXBException in Java 9](https://stackoverflow.com/questions/43574426/how-to-resolve-java-lang-noclassdeffounderror-javax-xml-bind-jaxbexception-in-j?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa)
