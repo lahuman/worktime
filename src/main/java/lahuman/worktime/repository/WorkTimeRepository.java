@@ -7,5 +7,5 @@ import java.sql.Date;
 
 public interface WorkTimeRepository extends CrudRepository<WorkTime, Long> {
 
-    WorkTime findByWorkDateAndWorkerId(Date workDate, Long workerId);
+    WorkTime findByWorkDateAndWorkerId(String workDate, Long workerId);
 }
